@@ -12,7 +12,7 @@ function Category() {
     
 
     const fetchData = async () => {
-        const data = await fetch(`http://localhost:8080/api/views`);
+        const data = await fetch(`http://localhost:8999/api/viewNames`);
         let jsonData = await data.json();
         setViews(jsonData);
     }

@@ -12,7 +12,15 @@ function Tabular() {
     
 
     const fetchData = async (name) => {
-        const data = await fetch(`http://localhost:8080/api/views/${name}`);
+        const data = await fetch(`http://localhost:8999/api/views`, {
+          method : "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "name": name
+          })
+        });
         let jsonData = await data.json();
         setColHeaders(jsonData.attributeTitles);
         setRows(jsonData.attributeValues);
